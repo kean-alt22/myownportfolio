@@ -1,0 +1,571 @@
+/* Variables for colors, spacing, and font */
+:root {
+  --bg: #0b1220; /* Page background color */
+  --card: #0f172a; /* Card background color */
+  --text: #e5e7eb; /* Main text color */
+  --muted: #9ca3af; /* Muted / secondary text color */
+  --accent: #60a5fa; /* Primary accent color (buttons, labels) */
+  --accent-2: #a5b4fc; /* Secondary accent color (not used everywhere yet) */
+  --border: #1f2937; /* Default border color for cards and sections */
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.3); /* Default drop shadow for cards */
+  --radius: 14px; /* Default corner radius for rounded elements */
+  font-family: "Inter", system-ui, -apple-system, sans-serif; /* Base font for the whole page */
+}
+
+/* Apply border-box sizing to all elements so padding/borders don't grow layout unexpectedly */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Include padding and border in element width/height */
+}
+
+/* Smooth scroll for in-page links like #about, #projects, #contact */
+html {
+  scroll-behavior: smooth; /* Animate scrolling when jumping to anchors */
+}
+
+/* Base body styles */
+body {
+  margin: 0; /* Remove default browser margin around the page */
+  background:
+    radial-gradient(circle at top left, rgba(96, 165, 250, 0.18), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(129, 140, 248, 0.16), transparent 55%),
+    #020617; /* Layered gradients + solid base for a richer background */
+  color: var(--text); /* Default text color */
+  line-height: 1.7; /* Comfortable vertical spacing between lines of text */
+  font-size: 17px; /* Slightly larger base font for readability */
+  min-height: 100vh; /* Make sure the body always fills the viewport height */
+}
+
+/* Link styles inherit their color and remove the default underline */
+a {
+  color: inherit; /* Use the current text color of the parent */
+  text-decoration: none; /* Remove underlines from links */
+}
+
+/* Sticky header bar at the top of the page */
+.site-header {
+  display: flex; /* Lay out logo and nav in a row */
+  align-items: center; /* Vertically center items inside the header */
+  justify-content: space-between; /* Push logo left and nav to the right */
+  padding: 18px 20px; /* Space inside the header */
+  position: sticky; /* Keep header fixed to the top when scrolling */
+  top: 0; /* Stick to the very top of the viewport */
+  background: rgba(11, 18, 32, 0.9); /* Slightly transparent dark background */
+  backdrop-filter: blur(10px); /* Blur the content behind for a glass effect */
+  border-bottom: 1px solid var(--border); /* Thin bottom border to separate from content */
+  z-index: 10; /* Make sure it sits above page content */
+}
+
+/* Logo text styling in the header */
+.logo {
+  font-weight: 700; /* Bold logo text */
+  letter-spacing: 0.5px; /* Slight spacing between letters */
+  font-size: 18px; /* Logo font size */
+}
+
+/* Navigation container */
+.nav {
+  display: flex; /* Place nav links in a row */
+  gap: 12px; /* Space between each nav item */
+  align-items: center; /* Vertically align nav links with the header */
+}
+
+/* Navigation links */
+.nav a {
+  color: var(--muted); /* Slightly muted color for inactive links */
+  font-weight: 600; /* Semi-bold text for nav items */
+  padding: 8px 10px; /* Clickable padding around the text */
+  border-radius: 10px; /* Rounded corners when background is applied */
+  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; /* Smooth hover/active transitions */
+}
+
+/* Hover state for nav links */
+.nav a:hover {
+  color: var(--text); /* Brighten text on hover */
+  background: rgba(255, 255, 255, 0.04); /* Very subtle light background on hover */
+}
+
+/* Active nav link (for the section currently in view) */
+.nav a.active {
+  color: var(--text); /* Same bright text color */
+  background: rgba(96, 165, 250, 0.16); /* Blue-tinted background to indicate active */
+  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.4); /* Thin blue outline glow */
+}
+
+/* Special button style in nav for the "Say Hi" call-to-action */
+.nav .cta {
+  background: var(--accent); /* Use primary accent blue */
+  color: #0b1220; /* Dark text so it's readable on the bright background */
+  font-weight: 700; /* Stronger emphasis */
+  box-shadow: 0 8px 24px rgba(96, 165, 250, 0.35); /* Glow shadow for a button feel */
+}
+
+/* Main content wrapper */
+main {
+  padding: 48px 20px 80px; /* Top, side, and bottom spacing around content */
+  max-width: 1120px; /* Limit content width for better readability */
+  margin: 0 auto; /* Center the main content horizontally */
+}
+
+/* Hero layout */
+.hero {
+  display: grid; /* Use CSS grid to create two columns (text + card) */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive columns that stack on small screens */
+  gap: 28px; /* Space between the two hero columns */
+  align-items: center; /* Vertically center card and text relative to each other */
+  padding: 32px; /* Space inside hero card */
+  border-radius: var(--radius); /* Rounded corners for the hero container */
+  background: radial-gradient(
+      circle at top right,
+      rgba(96, 165, 250, 0.18),
+      transparent 55%
+    ),
+    var(--card); /* Card background with soft blue glow in the corner */
+  box-shadow: var(--shadow); /* Drop shadow to lift hero off the page */
+  border: 1px solid var(--border); /* Subtle border around the hero */
+}
+
+/* Hero headline */
+.hero__text h1 {
+  margin: 6px 0 14px; /* Small space above and below heading */
+  font-size: clamp(30px, 4.2vw, 44px); /* Responsive font size between 30px and 44px */
+  line-height: 1.2; /* Slightly tight line height for a bold hero heading */
+}
+
+/* Hero lead paragraph */
+.hero__text .lead {
+  color: var(--muted); /* Use muted color to sit under the heading visually */
+  margin-bottom: 20px; /* Space before the buttons row */
+}
+
+/* Hero button row */
+.hero__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Info card beside hero text */
+.hero__card {
+  background: #0c1526;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* Top row inside card */
+.card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+/* Card name text */
+.card__name {
+  font-weight: 700;
+}
+
+/* Card role text */
+.card__role {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Card body text */
+.card__body {
+  color: var(--muted);
+}
+
+/* Skill tags container */
+.skills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* Individual skill tag */
+.skills span {
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(96, 165, 250, 0.12);
+  color: #dbeafe;
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  font-size: 13px;
+}
+
+/* Spacing between sections */
+.section {
+  margin-top: 54px;
+  /* Prevent sticky header from covering section titles when using anchor links */
+  scroll-margin-top: 120px;
+}
+
+/* Section title */
+.section__header h2 {
+  margin: 6px 0 10px;
+  font-size: 24px;
+}
+
+/* Section paragraph */
+.section__body {
+  max-width: 700px;
+  color: var(--muted);
+}
+
+/* Section header spacing */
+.section__header {
+  margin-bottom: 10px;
+}
+
+/* Small label text */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Grid layout for about items */
+.about__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+/* Individual about card */
+.about__item {
+  background: #0c1526;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  color: var(--muted);
+  box-shadow: var(--shadow);
+}
+
+/* Services section grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+/* Individual service card */
+.service-card {
+  background: #020617;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 18px 18px 16px;
+  box-shadow: var(--shadow);
+}
+
+.service-card h3 {
+  margin: 0 0 8px;
+}
+
+.service-card p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+.service-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* Project cards layout */
+.projects .project-card {
+  background: #0f172a;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-top: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* Project title style */
+.project-card__info h3 {
+  margin: 0 0 8px;
+}
+
+/* Project description style */
+.project-card__info p {
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+/* Tags list reset and layout */
+.tags {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+/* Individual tag pill */
+.tags li {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: var(--text);
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+
+/* Project meta box */
+.project-card__meta {
+  background: #0c1526;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid var(--border);
+}
+
+/* Meta label style */
+.meta__label {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+  margin: 0 0 8px;
+}
+
+/* Meta value style */
+.meta__value {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Contact section layout */
+.contact {
+  display: flex;
+  justify-content: center;
+}
+
+/* Contact card container */
+.contact__card {
+  width: min(820px, 100%);
+  background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.16), transparent 55%), #020617;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: var(--radius);
+  padding: 22px 22px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: var(--shadow);
+}
+
+/* Contact card title spacing */
+.contact__card h2 {
+  margin: 8px 0 10px;
+  font-size: 24px;
+}
+
+/* Contact card paragraph style */
+.contact__card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Emphasis for main contact line */
+.contact__subtitle {
+  color: var(--text);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+/* Softer helper line under contact subtitle */
+.contact__note {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* Contact button row */
+.contact__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Base button styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* Primary button look */
+.btn.primary {
+  background: var(--accent);
+  color: #0b1220;
+  box-shadow: 0 10px 26px rgba(96, 165, 250, 0.35);
+}
+
+/* Ghost button look */
+.btn.ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+/* Button hover effect */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+}
+
+/* Enable hover transitions on main blocks */
+.section,
+.project-card,
+.contact__card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Highlight headers on section hover */
+.section:hover .section__header h2,
+.section:hover .section__header .eyebrow {
+  color: var(--accent);
+}
+
+/* Lift cards on hover */
+.project-card:hover,
+.contact__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.36);
+}
+
+/* Footer styles */
+.site-footer {
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: rgba(12, 21, 38, 0.92);
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 780px) {
+  /* Stack header items */
+  .site-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Wrap nav links */
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Make project cards one column */
+  .projects .project-card {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack contact card contents */
+  .contact__card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Skills section layout */
+.skills-section {
+  /* Space above follows .section margin */
+}
+
+/* Grid for skill groups */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+/* Card style for skills */
+.skills-card {
+  background: #0c1526;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* Skill card title */
+.skills-card h3 {
+  margin: 0 0 8px;
+}
+
+/* Skill list reset */
+.skills-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Experience section */
+.experience {
+  /* Uses default spacing */
+}
+
+/* Timeline container */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Each timeline entry */
+.timeline__item {
+  background: #0c1526;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* Role text */
+.timeline__role {
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Place text */
+.timeline__place {
+  margin: 2px 0 8px;
+  color: var(--muted);
+}
+
+/* Meta row for dates and location */
+.timeline__meta {
+  display: flex;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Description under each role */
+.timeline__desc {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+

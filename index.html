@@ -1,0 +1,384 @@
+<!-- HTML5 document declaration -->
+<!DOCTYPE html>
+<!-- Root element with English language -->
+<html lang="en">
+<head>
+  <!-- Set character encoding so text shows correctly -->
+  <meta charset="UTF-8">
+  <!-- Make layout adapt to mobile screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Text shown in the browser tab -->
+  <title>Portfolio | starboi kyan</title>
+  <!-- Link to the external stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Sticky header with logo and navigation -->
+  <header class="site-header">
+    <!-- Simple text logo -->
+    <div class="logo">Memento Mori</div>
+    <!-- Navigation links to page sections -->
+    <nav class="nav">
+      <!-- Jump to About section -->
+      <a href="#about">About</a>
+      <!-- Jump to Projects section -->
+      <a href="#projects">Projects</a>
+      <!-- Jump to Contact section -->
+      <a href="#contact">Contact</a>
+      <!-- Email call-to-action -->
+      <a class="cta" href="mailto:hello@example.com">Say Hi</a>
+    </nav>
+  </header>
+
+  <!-- Main page content -->
+  <main>
+    <!-- Hero section with intro and card -->
+    <section class="hero"> <!-- Main hero area at the top of the page -->
+      <!-- Text block for headline and buttons -->
+      <div class="hero__text"> <!-- Left side: main text content -->
+        <!-- Small label describing the role -->
+        <p class="eyebrow">Designer & Developer</p> <!-- Small uppercase label above the heading -->
+        <!-- Main headline with name -->
+        <h1>Hi, I'm Student Name.</h1> <!-- Big main title introducing you -->
+        <!-- Short summary line -->
+        <p class="lead">
+          I design and build simple, clear, and fast web experiences
+          for small businesses, creators, and indie products.
+        </p> <!-- One-sentence description of what you do -->
+        <!-- Button row -->
+        <div class="hero__actions"> <!-- Wraps the two call-to-action buttons -->
+          <!-- Button linking to projects -->
+          <a class="btn primary" href="#projects">View Work</a> <!-- Primary button that scrolls to projects -->
+          <!-- Button linking to contact -->
+          <a class="btn ghost" href="#contact">Let's Talk</a> <!-- Secondary button that scrolls to contact -->
+        </div>
+      </div>
+      <!-- Profile card beside the text -->
+      <div class="hero__card"> <!-- Right side: small information card about you -->
+        <!-- Top row with name and role -->
+        <div class="card__top"> <!-- Name and role in one horizontal row -->
+          <!-- Name inside card -->
+          <p class="card__name">kyanboi</p> <!-- Your display name -->
+          <!-- Role inside card -->
+          <p class="card__role">Design / Frontend</p> <!-- Short label of what you do -->
+        </div>
+        <!-- Body text and skills -->
+        <div class="card__body"> <!-- Description and list of skill tags -->
+          <!-- Short bio line -->
+          <p>Based in Kyan's Boarding House. I keep interfaces lean, accessible, and maintainable.</p> <!-- One-line mini bio -->
+          <!-- Skills list -->
+          <div class="skills"> <!-- Row of small rounded skill badges -->
+            <!-- Skill tag -->
+            <span>UI</span>   <!-- Skill: user interface design -->
+            <!-- Skill tag -->
+            <span>UX</span>   <!-- Skill: user experience design -->
+            <!-- Skill tag -->
+            <span>HTML</span> <!-- Skill: HTML structure and markup -->
+            <!-- Skill tag -->
+            <span>CSS</span>  <!-- Skill: CSS styling and layout -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section id="about" class="section about">
+      <!-- Section header with label and title -->
+      <div class="section__header">
+        <!-- Small label -->
+        <p class="eyebrow">About</p>
+        <!-- Section title -->
+        <h2>Who I am</h2>
+      </div>
+      <!-- Paragraph describing style -->
+      <p class="section__body">
+        I like making the web feel calm and easy. Clear words, simple layouts, and fast pages are my style. I focus on the details that make interfaces feel effortless: spacing, hierarchy, and tiny interactions.
+      </p>
+      <!-- Grid of three short points -->
+      <div class="about__grid">
+        <!-- Point one -->
+        <div class="about__item">
+          <h3>Product Sense</h3>
+          <p>Start with the problem, cut noise, ship what matters.</p>
+        </div>
+        <!-- Point two -->
+        <div class="about__item">
+          <h3>Systems</h3>
+          <p>Keep components consistent so teams move faster.</p>
+        </div>
+        <!-- Point three -->
+        <div class="about__item">
+          <h3>Frontend</h3>
+          <p>Build responsive, accessible interfaces without bloat.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services section -->
+    <section class="section services">
+      <div class="section__header">
+        <p class="eyebrow">Services</p>
+        <h2>How I can help</h2>
+      </div>
+      <div class="section__body">
+        <p>I work end-to-end on small to mid-size projects: from the first sketch to the live, responsive build.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <h3>Website & Landing Pages</h3>
+          <p>Clean, focused pages that tell your story and guide visitors to action.</p>
+          <ul>
+            <li>Single-page sites and portfolios</li>
+            <li>Launch and campaign pages</li>
+            <li>Mobile-first, fast-loading builds</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <h3>Product UI & UX</h3>
+          <p>Interfaces that are easy to learn, pleasant to use, and consistent across screens.</p>
+          <ul>
+            <li>User flows and wireframes</li>
+            <li>Design systems and reusable patterns</li>
+            <li>Polished UI in Figma, ready for devs</li>
+          </ul>
+        </article>
+        <article class="service-card">
+          <h3>Frontend Implementation</h3>
+          <p>Solid, maintainable frontend built with modern practices.</p>
+          <ul>
+            <li>Semantic HTML and modern CSS</li>
+            <li>Component-based architecture</li>
+            <li>Accessibility and performance basics</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects section -->
+    <section id="projects" class="section projects">
+      <!-- Section header -->
+      <div class="section__header">
+        <p class="eyebrow">Work</p>
+        <h2>Selected work</h2>
+      </div>
+      <!-- First project card -->
+      <div class="project-card">
+        <div class="project-card__info">
+          <h3>Travel Planner</h3>
+          <p>Mobile-first travel planner with live itineraries and offline mode.</p>
+          <!-- Tags for tools and focus areas -->
+          <ul class="tags">
+            <li>UX Research</li>
+            <li>Design System</li>
+            <li>React</li>
+            <li>API Integration</li>
+          </ul>
+        </div>
+        <div class="project-card__meta">
+          <p class="meta__label">Impact</p>
+          <p class="meta__value">+32% session duration</p>
+          <p class="meta__value">-18% support tickets</p>
+        </div>
+      </div>
+      <!-- Second project card -->
+      <div class="project-card">
+        <div class="project-card__info">
+          <h3>Video Editing Showcase</h3>
+          <p>A curated reel of short-form edits, transitions, and color grades for social content.</p>
+          <!-- Tags for this project -->
+          <ul class="tags">
+            <li>Video Editing</li>
+            <li>Color Grading</li>
+            <li>Motion & Transitions</li>
+            <li>Social Content</li>
+          </ul>
+        </div>
+        <div class="project-card__meta">
+          <p class="meta__label">Impact</p>
+          <p class="meta__value">Higher watch time</p>
+          <p class="meta__value">More repeat viewers</p>
+        </div>
+      </div>
+      <!-- Third project card -->
+      <div class="project-card">
+        <div class="project-card__info">
+          <h3>Personal Portfolio</h3>
+          <p>Minimal, dark-mode portfolio showcasing selected work, skills, and experience.</p>
+          <ul class="tags">
+            <li>Design & Build</li>
+            <li>Responsive Layouts</li>
+            <li>CSS Architecture</li>
+            <li>Micro interactions</li>
+          </ul>
+        </div>
+        <div class="project-card__meta">
+          <p class="meta__label">Impact</p>
+          <p class="meta__value">Clear story of skills</p>
+          <p class="meta__value">Better first impression</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills section -->
+    <section class="section skills-section">
+      <!-- Section header -->
+      <div class="section__header">
+        <p class="eyebrow">Skills</p>
+        <h2>What I work with</h2>
+      </div>
+      <!-- Skill columns -->
+      <div class="skills-grid">
+        <!-- Skill group -->
+        <div class="skills-card">
+          <h3>Frontend</h3>
+          <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Responsive layouts</li>
+            <li>Accessibility basics</li>
+            <li>Component-based thinking</li>
+          </ul>
+        </div>
+        <!-- Skill group -->
+        <div class="skills-card">
+          <h3>Design</h3>
+          <ul>
+            <li>Wireframes and flows</li>
+            <li>UI systems and tokens</li>
+            <li>Prototyping in Figma</li>
+            <li>Visual hierarchy & typography</li>
+          </ul>
+        </div>
+        <!-- Skill group -->
+        <div class="skills-card">
+          <h3>Collaboration</h3>
+          <ul>
+            <li>Working with PMs and devs</li>
+            <li>Writing simple docs</li>
+            <li>Clear handoff files</li>
+            <li>Async updates and feedback</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience section -->
+    <section class="section experience">
+      <!-- Section header -->
+      <div class="section__header">
+        <p class="eyebrow">Experience</p>
+        <h2>Recent work history</h2>
+      </div>
+      <!-- Timeline items -->
+      <div class="timeline">
+        <!-- Timeline row -->
+        <div class="timeline__item">
+          <div>
+            <p class="timeline__role">Product Designer / Frontend</p>
+            <p class="timeline__place">Kent Studio</p>
+          </div>
+          <div class="timeline__meta">
+            <span>2023 — 2024</span>
+            <span>Remote</span>
+          </div>
+          <p class="timeline__desc">Designed and built small SaaS tools, keeping the UI consistent and fast.</p>
+        </div>
+        <!-- Timeline row -->
+        <div class="timeline__item">
+          <div>
+            <p class="timeline__role">UI/UX Designer</p>
+            <p class="timeline__place">Haneo's Game Studio</p>
+          </div>
+          <div class="timeline__meta">
+            <span>2021 — 2023</span>
+            <span>Remote</span>
+          </div>
+          <p class="timeline__desc">Created flows, wireframes, and handoffs for mobile products.</p>
+        </div>
+        <!-- Timeline row -->
+        <div class="timeline__item">
+          <div>
+            <p class="timeline__role">Freelance Designer & Developer</p>
+            <p class="timeline__place">Self-initiated projects</p>
+          </div>
+          <div class="timeline__meta">
+            <span>2019 — 2021</span>
+            <span>Remote</span>
+          </div>
+          <p class="timeline__desc">Designed and built small sites and landing pages for personal and practice projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact section -->
+    <section id="contact" class="section contact">
+      <!-- Contact card with text and buttons -->
+      <div class="contact__card">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let’s work together</h2>
+          <p class="contact__subtitle">Available for freelance and full-time roles.</p>
+          <p class="contact__note">Tell me a bit about your project, your timeline, and how you like to work together.</p>
+        </div>
+        <div class="contact__actions">
+          <a class="btn primary" href="mailto:hello@example.com">Email Me</a>
+          <a class="btn ghost" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with auto-updating year -->
+  <footer class="site-footer">
+    <p>© <span id="year"></span> kyanboi. Simple web things.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Insert current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Active nav link on scroll
+    const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+    const sections = Array.from(navLinks)
+      .map(link => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    function updateActiveLink() {
+      const scrollPos = window.scrollY;
+      const offset = 120; // header height + extra spacing
+
+      let currentId = null;
+
+      sections.forEach(section => {
+        const top = section.offsetTop - offset;
+        const bottom = top + section.offsetHeight;
+        if (scrollPos >= top && scrollPos < bottom) {
+          currentId = '#' + section.id;
+        }
+      });
+
+      // If at (or very near) the bottom of the page, force the last section as active (Contact)
+      const nearBottom =
+        window.innerHeight + scrollPos >= document.body.offsetHeight - 4;
+      if (!currentId && nearBottom && sections.length > 0) {
+        const lastSection = sections[sections.length - 1];
+        if (lastSection && lastSection.id) {
+          currentId = '#' + lastSection.id;
+        }
+      }
+
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    window.addEventListener('load', updateActiveLink);
+  </script>
+</body>
+</html>
+
